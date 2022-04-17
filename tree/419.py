@@ -29,8 +29,8 @@ class Solution:
     
     def getLevel(self, root, res, level):
         if not root:
-            return []
-        if level == len(res):
+            return
+        while len(res) <= level:
             res.append([])
         res[level].append(root.val)
         for child in root.children:

@@ -6,16 +6,32 @@
 #         self.right = right
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
-        dict = {}
-        def dfs(node, dict, depth):
-            if not node:
-                return
-            if depth not in dict:
-                dict[depth] = 0
-            dict[depth] += node.val
-            if node.left:
-                dfs(node.left, dict, depth + 1)
-            if root.right:
-                dfs(node.right, dict, depth + 1)
-        dfs(root, dict, 0)
-        return dict[max(dict.keys())]
+        # dict = {}
+        # def dfs(node, dict, depth):
+        #     if not node:
+        #         return
+        #     if depth not in dict:
+        #         dict[depth] = 0
+        #     dict[depth] += node.val
+        #     if node.left:
+        #         dfs(node.left, dict, depth + 1)
+        #     if root.right:
+        #         dfs(node.right, dict, depth + 1)
+        # dfs(root, dict, 0)
+        # return dict[max(dict.keys())]
+        
+        # bfs
+        
+        q = [root]
+        while q:
+            tmp = []
+            sum = 0
+            for node in q:
+                sum += node.val
+                if node.left:
+                    tmp.append(node.left)
+                if node.right:
+                    tmp.append(node.right)
+            if not tmp:
+                return sum
+            q = tmp

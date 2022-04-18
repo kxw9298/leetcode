@@ -29,7 +29,7 @@ class Solution:
         if not l and not r:
             return True
         if not l or not r:
-            return False;
+            return False
         return l.val == r.val and \
                self.isSameTree(l.left, r.left) and \
                self.isSameTree(l.right, r.right)

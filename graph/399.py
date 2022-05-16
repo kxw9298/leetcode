@@ -12,6 +12,9 @@ class Solution:
             if rx != ry:
                 return -1.0
             return vx / vy
+
+        # parents["A"] = {"B", 2.0} -> A = 2.0 * B
+        # parents["B"] = {"C", 3.0} -> B = 3.0 * C
         U = {}
 
         for (x, y), v in zip(equations, values):
